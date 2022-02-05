@@ -3,4 +3,9 @@
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>FOAnniversary</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Obstacles\ObstaclesManager.tscn" />
+    <Content Include="Obstacles\TempObstaclePrefab.tscn" />
+    <Content Include="ScoringSystem\ScoringManager.tscn" />
+  </ItemGroup>
 </Project>
