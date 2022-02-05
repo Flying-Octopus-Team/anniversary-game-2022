@@ -1,4 +1,5 @@
 using System;
+using FOAnniversary;
 using Godot;
 using Array = Godot.Collections.Array;
 
@@ -7,8 +8,6 @@ public class ObstaclesManager : Node2D
     {
         [Export()] private Resource _obstacle;
         [Export()] private int _spawnAtX; 
-        [Export()] private int _spawnHeightMin;
-        [Export()] private int _spawnHeightMax;
     
         [Export()] private float _interval;
         [Export()] private float _intervalVariance;
@@ -56,29 +55,28 @@ public class ObstaclesManager : Node2D
                 float finalVar = _random.Next(-tempVar, tempVar) / 100f;
                 _obstaclesTimer.WaitTime = _interval + finalVar;         
             
-                ManageObstacles(_spawnAtX, _spawnHeightMin, _spawnHeightMax);
+                ManageObstacles(_spawnAtX);
             }
         }
 
-        private void ManageObstacles(int spawnX, int yMin, int yMax)
+        private void ManageObstacles(int spawnX)
         {
             Node2D node;
             Array children = _obstaclesParent.GetChildren();
             if (children.Count < MAX_OBSTACLES)
             {
                 // Spawn
-                node = (Node2D) _obstaclePrefab.Instance();
+                node = _obstaclePrefab.Instance<ObstacleGroup>();
                 _obstaclesParent.AddChild(node);
             }
             else
             {
-                node = (Node2D) children[0];
+                node = (ObstacleGroup) children[0];
                 _obstaclesParent.MoveChild(node, MAX_OBSTACLES - 1);
             }
 
             // Reposition and attach
-            int posX = _random.Next(yMin, yMax);
-            Vector2 newPos = new Vector2(spawnX, posX);
+            Vector2 newPos = new Vector2(spawnX, 0);
             node.Position = newPos;
         }
     }
