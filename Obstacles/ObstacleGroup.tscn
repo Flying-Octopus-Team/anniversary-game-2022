@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Obstacles/Scripts/ObstacleGroup.cs" type="Script" id=1]
+[ext_resource path="res://Obstacles/Obstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Obstacles/HookObstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Obstacles/AnchorObstacle.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 50, 0 )
+script = ExtResource( 1 )
+_topObstaclePaths = [ NodePath("AnchorObstacle"), NodePath("HookObstacle") ]
+_bottomObstaclePaths = [ NodePath("BallObstacle") ]
+
+[node name="BallObstacle" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="AnchorObstacle" parent="." instance=ExtResource( 4 )]
+visible = false
+IsBottom = false
+
+[node name="HookObstacle" parent="." instance=ExtResource( 3 )]
+visible = false
+IsBottom = false
