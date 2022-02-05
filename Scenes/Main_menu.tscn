@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Start_game_button.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Exit_button.cs" type="Script" id=2]
+
+[sub_resource type="ImageTexture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Start_game_button" type="Button" parent="."]
+margin_left = 226.0
+margin_top = 267.0
+margin_right = 835.0
+margin_bottom = 309.0
+text = "Start the game"
+icon = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit_button" type="Button" parent="."]
+margin_left = 225.0
+margin_top = 425.0
+margin_right = 834.0
+margin_bottom = 467.0
+text = "Exit"
+icon = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
