@@ -3,16 +3,19 @@ using System;
 
 public class Octi : KinematicBody2D
 {
-    private int _jump_speed = -350;
-    private Vector2 _velocity = new Vector2();
-    private int _gravity = 10;
+    [Export]
+    private int _JumpSpeed;
+    [Export]
+    private int _Gravity;
+
+    private Vector2 _Velocity = new Vector2();
     public override void _PhysicsProcess(float delta)
     {
         if (Input.IsActionJustPressed("jump"))
         {
-            _velocity.y = _jump_speed;
+            _Velocity.y = _JumpSpeed;
         }
-        MoveAndSlide(_velocity);
-        _velocity.y += _gravity;
+        MoveAndSlide(_Velocity);
+        _Velocity.y += _Gravity;
     }
 }
