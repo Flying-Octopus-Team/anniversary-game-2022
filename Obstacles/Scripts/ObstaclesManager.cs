@@ -3,46 +3,51 @@ using FOAnniversary;
 using Godot;
 using Array = Godot.Collections.Array;
 
-
-public class ObstaclesManager : Node2D
+namespace FOAnniversary.Obstacles.Scripts
+{
+    public class ObstaclesManager : Node2D
     {
         [Export()] private Resource _obstacle;
-        [Export()] private int _spawnAtX; 
-    
+        [Export()] private int _spawnAtX;
+
         [Export()] private float _interval;
         [Export()] private float _intervalVariance;
         [Export()] private int _speed;
 
         private PackedScene _obstaclePrefab;
         private const int MAX_OBSTACLES = 10;
-    
+
         private Random _random = new Random();
 
-        private Node2D _obstaclesParent; 
+        private Node2D _obstaclesParent;
         private Timer _obstaclesTimer;
-    
+
         public override void _Ready()
         {
-        var i = 5;
+            var i = 5;
             _obstaclesTimer = GetChild<Timer>(0);
-            _obstaclesParent = (Node2D)GetChild(2);
-        
+            _obstaclesParent = (Node2D) GetChild(2);
+
             if (_obstacle == null)
             {
                 GD.PrintErr("No prefab attached to manager.");
                 return;
             }
+
             string path = _obstacle.ResourcePath;
             _obstaclePrefab = ResourceLoader.Load<PackedScene>(path);
-        
+
             StartGenerating();
         }
-    
+
         public override void _PhysicsProcess(float delta)
         {
             // Moves obstacles
-            _obstaclesParent.Position += Vector2.Left * _speed;
-            _spawnAtX += _speed;
+            if (GameManager.IsPlaying)
+            {
+                _obstaclesParent.Position += Vector2.Left * _speed;
+                _spawnAtX += _speed;
+            }
         }
 
         private async void StartGenerating()
@@ -51,10 +56,10 @@ public class ObstaclesManager : Node2D
             {
                 await ToSignal(_obstaclesTimer, "timeout");
 
-                int tempVar = (int)(_intervalVariance * 100);
+                int tempVar = (int) (_intervalVariance * 100);
                 float finalVar = _random.Next(-tempVar, tempVar) / 100f;
-                _obstaclesTimer.WaitTime = _interval + finalVar;         
-            
+                _obstaclesTimer.WaitTime = _interval + finalVar;
+
                 ManageObstacles(_spawnAtX);
             }
         }
@@ -81,7 +86,23 @@ public class ObstaclesManager : Node2D
         }
     }
 
-    public static class GameManager
+    public class GameManager : Node
     {
         public static bool IsPlaying = true;
+
+        public static void RestartGame()
+        {
+        }
+
+        public static void EndGame()
+        {
+            if (!IsPlaying)
+            {
+                return;
+            }
+
+            GD.Print("Game Over!");
+            IsPlaying = false;
+        }
     }
+}

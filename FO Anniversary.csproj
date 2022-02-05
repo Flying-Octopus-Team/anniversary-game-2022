@@ -5,7 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Obstacles\ObstaclesManager.tscn" />
-    <Content Include="Obstacles\TempObstaclePrefab.tscn" />
     <Content Include="ScoringSystem\ScoringManager.tscn" />
   </ItemGroup>
 </Project>
