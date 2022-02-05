@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Resources/octi_shape.tres" type="Shape2D" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Resources/pixelocti.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Octi.cs" type="Script" id=3]
 
 [node name="Octi" type="Node2D"]
