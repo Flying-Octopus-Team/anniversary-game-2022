@@ -15,9 +15,9 @@ public class GameManager : Node
 
     public static bool IsPlaying = true;
 
-    public void GameReady()
+    public void GameReady(Node node)
     {
-        GetNode("GameNode").Connect("OnDeath", this, nameof(EndGame));
+        node.Connect("OnDeath", this, nameof(EndGame));
     }
     public void RestartGame()
     {

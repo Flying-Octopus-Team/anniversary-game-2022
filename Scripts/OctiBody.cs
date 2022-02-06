@@ -35,10 +35,7 @@ public class OctiBody : KinematicBody2D
         {
             return;
         }
-        if (GameManager.IsPlaying)
-        {
-            _Velocity = Vector2.Zero;
-            GetNode<Octi>(_OctiParent).EmitOnDeath();
-        }
+        _Velocity = Vector2.Zero;
+        GetNode<Octi>(_OctiParent).EmitOnDeath();
     }
 }
