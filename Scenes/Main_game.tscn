@@ -15,7 +15,6 @@ extents = Vector2( 591.188, 34 )
 [node name="GameNode" type="Node2D" parent="."]
 
 [node name="ObstaclesManager" parent="GameNode" instance=ExtResource( 1 )]
-_spawnAtX = 1800
 _interval = 2.0
 _intervalVariance = 0.3
 

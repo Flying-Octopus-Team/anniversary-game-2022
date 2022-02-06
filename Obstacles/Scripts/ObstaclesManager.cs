@@ -1,53 +1,40 @@
 using System;
-using FOAnniversary;
 using Godot;
-using Array = Godot.Collections.Array;
 
 namespace FOAnniversary.Obstacles.Scripts
 {
     public class ObstaclesManager : Node2D
     {
-        [Export()] private Resource _obstacle;
-        [Export()] private int _spawnAtX;
-
-        [Export()] private float _interval;
-        [Export()] private float _intervalVariance;
-        [Export()] private int _speed;
-
-        private PackedScene _obstaclePrefab;
         private const int MAX_OBSTACLES = 10;
+        private readonly Random _random = new Random();
 
-        private Random _random = new Random();
+        [Export] private float _interval;
+        [Export] private float _intervalVariance;
 
-        private Node2D _obstaclesParent;
+        [Export] private NodePath _obstaclesScrollPath;
+        [Export] private NodePath _timerPath;
+
+        private ScrollingNode _obstaclesScroll;
         private Timer _obstaclesTimer;
 
         public override void _Ready()
         {
-            var i = 5;
-            _obstaclesTimer = GetChild<Timer>(0);
-            _obstaclesParent = (Node2D) GetChild(2);
-
-            if (_obstacle == null)
-            {
-                GD.PrintErr("No prefab attached to manager.");
-                return;
-            }
-
-            string path = _obstacle.ResourcePath;
-            _obstaclePrefab = ResourceLoader.Load<PackedScene>(path);
-
+            _obstaclesTimer = GetNode<Timer>(_timerPath);
+            _obstaclesScroll = GetNode<ScrollingNode>(_obstaclesScrollPath);
             StartGenerating();
         }
 
         public override void _PhysicsProcess(float delta)
         {
-            // Moves obstacles
             if (GameManager.IsPlaying)
             {
-                _obstaclesParent.Position += Vector2.Left * _speed;
-                _spawnAtX += _speed;
+                _obstaclesScroll.Scroll();                
             }
+        }
+
+        public void _on_Obstacles_OnChildSwap(Node2D node)
+        {
+            ((ObstacleGroup)node).Shuffle();
         }
 
         private async void StartGenerating()
@@ -56,34 +43,12 @@ namespace FOAnniversary.Obstacles.Scripts
             {
                 await ToSignal(_obstaclesTimer, "timeout");
 
-                int tempVar = (int) (_intervalVariance * 100);
-                float finalVar = _random.Next(-tempVar, tempVar) / 100f;
+                var tempVar = (int)(_intervalVariance * 100);
+                var finalVar = _random.Next(-tempVar, tempVar) / 100f;
                 _obstaclesTimer.WaitTime = _interval + finalVar;
 
-                ManageObstacles(_spawnAtX);
+                _obstaclesScroll.ManageChildren();
             }
-        }
-
-        private void ManageObstacles(int spawnX)
-        {
-            ObstacleGroup node;
-            Array children = _obstaclesParent.GetChildren();
-            if (children.Count < MAX_OBSTACLES)
-            {
-                // Spawn
-                node = _obstaclePrefab.Instance<ObstacleGroup>();
-                _obstaclesParent.AddChild(node);
-            }
-            else
-            {
-                node = (ObstacleGroup) children[0];
-                _obstaclesParent.MoveChild(node, MAX_OBSTACLES - 1);
-                node.Shuffle();
-            }
-
-            // Reposition and attach
-            Vector2 newPos = new Vector2(spawnX, 0);
-            node.Position = newPos;
         }
     }
 
@@ -97,10 +62,7 @@ namespace FOAnniversary.Obstacles.Scripts
 
         public static void EndGame()
         {
-            if (!IsPlaying)
-            {
-                return;
-            }
+            if (!IsPlaying) return;
 
             GD.Print("Game Over!");
             IsPlaying = false;

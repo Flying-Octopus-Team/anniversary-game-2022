@@ -1,23 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Obstacles/Scripts/ObstaclesManager.cs" type="Script" id=1]
-[ext_resource path="res://Obstacles/ObstacleGroup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Obstacles/ScrollingNode.cs" type="Script" id=2]
+[ext_resource path="res://Obstacles/ObstacleGroup.tscn" type="PackedScene" id=3]
 
 [node name="ObstaclesManager" type="Node2D"]
 script = ExtResource( 1 )
-_obstacle = ExtResource( 2 )
-_spawnAtX = 780
-_interval = 1.0
+_interval = 0.6
 _intervalVariance = 0.2
-_speed = 4
+_obstaclesScrollPath = NodePath("Obstacles")
+_timerPath = NodePath("SpawnTimer")
 
-[node name="1 SpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+[node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="2 CleanUp" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
-
-[node name="3 Obstacles" type="Node2D" parent="."]
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource( 2 )
+MaxChildrenCount = 10
+SpawnXPosition = 600
+Speed = 3
+_childResource = ExtResource( 3 )
