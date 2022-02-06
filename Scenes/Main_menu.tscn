@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/PressStart2P.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/StartGameButton.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Main_game.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://button_sm.png" type="Texture" id=5]
 
 [node name="Node2D" type="Control"]
@@ -11,6 +12,8 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" parent="." instance=ExtResource( 4 )]
 
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 anchor_left = 0.5

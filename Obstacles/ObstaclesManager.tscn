@@ -6,10 +6,10 @@
 [node name="ObstaclesManager" type="Node2D"]
 script = ExtResource( 1 )
 _obstacle = ExtResource( 2 )
-_spawnAtX = 2300
+_spawnAtX = 780
 _interval = 1.0
 _intervalVariance = 0.2
-_speed = 15
+_speed = 4
 
 [node name="1 SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0

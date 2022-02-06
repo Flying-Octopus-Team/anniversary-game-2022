@@ -7,9 +7,9 @@
 [node name="BallObstacle" instance=ExtResource( 1 )]
 
 [node name="BallSprite" parent="." index="0"]
-position = Vector2( -53, 0 )
+position = Vector2( -10.5, 0 )
 texture = ExtResource( 3 )
 
 [node name="ChainSprite" parent="." index="1"]
 texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 15, 39 )
+region_rect = Rect2( 0, 0, 3, 92 )

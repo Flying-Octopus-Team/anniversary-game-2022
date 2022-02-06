@@ -25,7 +25,7 @@ namespace FOAnniversary
             {
                 height = 0;
             }
-            var newSize = new Vector2(RegionRect.Size.x, height);
+            var newSize = new Vector2(RegionRect.Size.x, height + 1);
             RegionRect = new Rect2(RegionRect.Position, newSize);
             Position = new Vector2(Position.x, (float)Math.Round(height / 2f));
         }
