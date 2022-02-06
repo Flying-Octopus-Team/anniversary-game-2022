@@ -1,25 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ScoringSystem/ScoringManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Octi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/PressStart2P-Counter.tres" type="DynamicFont" id=3]
 
 [node name="ScoringManager" type="Node"]
 script = ExtResource( 1 )
 _player = ExtResource( 2 )
 
 [node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_scale = Vector2( 5, 5 )
+margin_left = 40.0
+margin_top = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Control"]
-margin_left = 5.0
-margin_top = 5.0
 margin_right = 8.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false

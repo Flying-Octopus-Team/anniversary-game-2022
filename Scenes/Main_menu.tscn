@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Fonts/PressStart2P.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/PressStart2P-Buttons.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/StartGameButton.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Main_game.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
