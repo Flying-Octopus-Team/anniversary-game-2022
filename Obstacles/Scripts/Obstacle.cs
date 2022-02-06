@@ -17,6 +17,11 @@ namespace FOAnniversary.Obstacles.Scripts
             _ballSprite = GetNode<Sprite>(_ballSpritePath);
         }
 
+        public int GetBallHeight()
+        {
+            return _ballSprite.Texture.GetHeight();
+        }
+
         public void ResizeObstacle(int obstacleHeight)
         {
             if (IsBottom)

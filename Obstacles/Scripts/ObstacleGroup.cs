@@ -8,9 +8,9 @@ namespace FOAnniversary
 {
     public class ObstacleGroup : Node2D
     {
-        [Export()] private float _speed;
         [Export()] private List<NodePath> _topObstaclePaths;
         [Export()] private List<NodePath> _bottomObstaclePaths;
+        [Export()] private int _gapSize;
 
         private List<Obstacle> _topObstacles;
         private List<Obstacle> _bottomObstacles;
@@ -26,17 +26,12 @@ namespace FOAnniversary
             Shuffle();
         }
 
-        public void _on_TextureButton_pressed()
-        {
-            Shuffle();
-        }
-
         public void Shuffle()
         {
             var maxHeight = (int)GetViewportRect().Size.y;
-            
-            var topHeight = rng.Next(0, maxHeight - 80 - 80);
-            var bottomHeight = rng.Next(topHeight + 80, maxHeight);
+            var ballGap = _currentBottomObstacle == null ? 120 : _currentBottomObstacle.GetBallHeight(); 
+            var topHeight = rng.Next(0, maxHeight - ballGap  - _gapSize);
+            var bottomHeight = rng.Next(topHeight + _gapSize, maxHeight);
 
             ShuffleBottomObstacle(bottomHeight);
             ShuffleTopObstacle(topHeight);
@@ -76,12 +71,6 @@ namespace FOAnniversary
             _currentTopObstacle = _topObstacles[botIdx];
             _currentTopObstacle.Visible = true;
             _currentTopObstacle.ResizeObstacle((int)topHeight);
-        }
-
-
-        public override void _PhysicsProcess(float delta)
-        {
-            Position += Vector2.Left * _speed;
         }
     }
 }

@@ -66,7 +66,7 @@ namespace FOAnniversary.Obstacles.Scripts
 
         private void ManageObstacles(int spawnX)
         {
-            Node2D node;
+            ObstacleGroup node;
             Array children = _obstaclesParent.GetChildren();
             if (children.Count < MAX_OBSTACLES)
             {
@@ -78,6 +78,7 @@ namespace FOAnniversary.Obstacles.Scripts
             {
                 node = (ObstacleGroup) children[0];
                 _obstaclesParent.MoveChild(node, MAX_OBSTACLES - 1);
+                node.Shuffle();
             }
 
             // Reposition and attach
