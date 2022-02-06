@@ -1,34 +1,64 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/ExitButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/StartGameButton.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Main_game.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Open_Sans/static/OpenSans/OpenSans-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://button.png" type="Texture" id=5]
 
-[sub_resource type="ImageTexture" id=1]
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
 
-[node name="Start_game_button" type="Button" parent="."]
-margin_left = 226.0
-margin_top = 267.0
-margin_right = 835.0
-margin_bottom = 309.0
-text = "Start the game"
-icon = SubResource( 1 )
+[node name="Node2D" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 380.0
+margin_top = 186.0
+margin_right = 700.0
+margin_bottom = 306.0
+texture_normal = ExtResource( 5 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 _MainScene = ExtResource( 3 )
 
-[node name="Exit_button" type="Button" parent="."]
-margin_left = 225.0
-margin_top = 425.0
-margin_right = 834.0
-margin_bottom = 467.0
-text = "Exit"
-icon = SubResource( 1 )
+[node name="Label" type="Label" parent="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+text = "Start Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+margin_left = 375.0
+margin_top = 378.0
+margin_right = 695.0
+margin_bottom = 498.0
+texture_normal = ExtResource( 5 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+text = "ExIT"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
