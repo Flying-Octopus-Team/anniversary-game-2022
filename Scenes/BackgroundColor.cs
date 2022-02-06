@@ -3,6 +3,10 @@ using System;
 
 public class BackgroundColor : Sprite
 {
+
+    [Export]
+    private int _mainBackgroundSize;
+
     private Vector2 _size;
     public override void _Ready()
     {
@@ -22,7 +26,7 @@ public class BackgroundColor : Sprite
         if (newSize != _size)
         {
             _size = newSize;
-            this.RegionRect = new Rect2(0, 0, newSize.x + 10, newSize.y + 10);
+            this.RegionRect = new Rect2(0, 0, newSize.x + 10, 1 + newSize.y - _mainBackgroundSize); 
         }
     }
 
