@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ExitButton : Button
+public class ExitButton : TextureButton
 {
     public override void _Ready()
     {

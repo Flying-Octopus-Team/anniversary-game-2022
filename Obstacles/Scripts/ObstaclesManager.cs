@@ -61,7 +61,7 @@ public class ObstaclesManager : Node2D
 
         private void ManageObstacles(int spawnX)
         {
-            Node2D node;
+            ObstacleGroup node;
             Array children = _obstaclesParent.GetChildren();
             if (children.Count < MAX_OBSTACLES)
             {
@@ -73,6 +73,7 @@ public class ObstaclesManager : Node2D
             {
                 node = (ObstacleGroup) children[0];
                 _obstaclesParent.MoveChild(node, MAX_OBSTACLES - 1);
+                node.Shuffle();
             }
 
             // Reposition and attach

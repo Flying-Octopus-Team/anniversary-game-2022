@@ -10,6 +10,7 @@ position = Vector2( 50, 0 )
 script = ExtResource( 1 )
 _topObstaclePaths = [ NodePath("AnchorObstacle"), NodePath("HookObstacle") ]
 _bottomObstaclePaths = [ NodePath("BallObstacle") ]
+_gapSize = 240
 
 [node name="BallObstacle" parent="." instance=ExtResource( 2 )]
 visible = false
