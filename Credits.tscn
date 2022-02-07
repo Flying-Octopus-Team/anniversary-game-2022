@@ -1,0 +1,143 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/PressStart2P-Buttons.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/Button/Sprites/facebook_pressed_btn.png" type="Texture" id=3]
+[ext_resource path="res://UI/Button/Sprites/discord_btn.png" type="Texture" id=4]
+[ext_resource path="res://UI/Button/Sprites/discord_pressed_btn.png" type="Texture" id=5]
+[ext_resource path="res://UI/Button/Sprites/facebook_btn.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/PressStart2P-Credits-Title.tres" type="DynamicFont" id=7]
+[ext_resource path="res://UI/Button/Scripts/SwitchSceneWithStringButton.cs" type="Script" id=8]
+[ext_resource path="res://UI/Button/Scripts/LinkButton.cs" type="Script" id=9]
+[ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=10]
+[ext_resource path="res://UI/Button/Sprites/buttonclicked.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/PressStart2P-Credits.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Resources/pixelocti.png" type="Texture" id=13]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 45.0
+margin_right = -15.0
+margin_bottom = -15.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 482.0
+margin_bottom = 228.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 482.0
+margin_bottom = 112.0
+collapsed = true
+dragger_visibility = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/VSplitContainer"]
+margin_right = 482.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 7 )
+text = "Game made by"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/VSplitContainer"]
+margin_top = 30.0
+margin_right = 482.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 12 )
+text = "Daria Mruz
+Grzegorz Kennedy Dominiak
+Misuzu
+Piotr Frankiewicz
+Przemysław Frankiewicz"
+align = 1
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_top = 116.0
+margin_right = 482.0
+margin_bottom = 174.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 178.0
+margin_right = 482.0
+margin_bottom = 228.0
+custom_constants/separation = 12
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 74.0
+margin_bottom = 50.0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource( 13 )
+
+[node name="FacebookButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 338.0
+margin_top = 11.0
+margin_right = 366.0
+margin_bottom = 39.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 9 )
+_url = "https://www.facebook.com/FO.flyingoctopus/"
+
+[node name="DiscordButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 378.0
+margin_top = 11.0
+margin_right = 406.0
+margin_bottom = 39.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+script = ExtResource( 9 )
+_url = "https://discord.gg/Q2DuSNY"
+
+[node name="BackButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 418.0
+margin_top = 13.0
+margin_right = 482.0
+margin_bottom = 37.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_sceneResourcePath = "res://Scenes/Main_menu.tscn"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/BackButton"]
+modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
