@@ -10,6 +10,20 @@
 position = Vector2( -10.5, 0 )
 texture = ExtResource( 3 )
 
+[node name="Area2D" parent="BallSprite" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="BallSprite/Area2D" index="0"]
+visible = false
+polygon = PoolVector2Array( 16, -13, 16, -8, 12.5, -4, 12.5, 9, 6.5, 18, -3.5, 18, -9.5, 13, -11.5, 7, -16.5, 7, -16, -3, -10.5, -7, -8.5, -7, -2.5, 1, -2.5, 12, 4.5, 12, 7.5, 7, 7.5, -5, 4.5, -8, 4.5, -13, 4.5, -13, 8.5, -18, 12.5, -18 )
+
 [node name="ChainSprite" parent="." index="1"]
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 3, 92 )
+
+[node name="Area2D" parent="ChainSprite" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="ChainSprite/Area2D" index="0"]
+visible = false
+polygon = PoolVector2Array( 1.5, 46, -1.5, 46, -1.5, -46, 1.5, -46 )

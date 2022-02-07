@@ -14,8 +14,22 @@ _chainSpritePath = NodePath("ChainSprite")
 [node name="BallSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
+[node name="Area2D" type="Area2D" parent="BallSprite"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BallSprite/Area2D"]
+visible = false
+polygon = PoolVector2Array( 5, -24, 18, -19, 28, -24, 30, -23, 25, -14, 30, 0, 43, 4, 43, 6, 32, 11, 24, 25, 30, 35, 29, 36, 18, 31, 2, 38, -1, 38, -16, 31, -30, 36, -24, 23, -27, 18, -29, 11, -42.5, 6, -42.5, 4, -30, 1, -24, -11, -30, -22, -28, -24, -18, -18, -6, -24, -1, -37, 1, -37 )
+
 [node name="ChainSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 9, 39 )
 script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="ChainSprite"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChainSprite/Area2D"]
+visible = false
+polygon = PoolVector2Array( 4.5, 19.5, -4.5, 19.5, -4.5, -19.5, 4.5, -19.5 )
