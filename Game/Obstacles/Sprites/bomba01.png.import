@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bomba01.png-248abfc3f4d38a9f2c4ab18c65f8f18c.stex"
+path="res://.import/bomba01.png-a71d18095a063b9cbe9ceaf2b3fe267c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Obstacles/Sprites/bomba01.png"
-dest_files=[ "res://.import/bomba01.png-248abfc3f4d38a9f2c4ab18c65f8f18c.stex" ]
+source_file="res://Game/Obstacles/Sprites/bomba01.png"
+dest_files=[ "res://.import/bomba01.png-a71d18095a063b9cbe9ceaf2b3fe267c.stex" ]
 
 [params]
 

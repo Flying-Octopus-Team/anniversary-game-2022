@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kotwica01.png-fae4e84b2ff13bbe6c2cda34664ceeb9.stex"
+path="res://.import/pixelocti.png-669e4f8593d5a63218bd68061ef36181.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Obstacles/Sprites/kotwica01.png"
-dest_files=[ "res://.import/kotwica01.png-fae4e84b2ff13bbe6c2cda34664ceeb9.stex" ]
+source_file="res://Game/Octi/Sprites/pixelocti.png"
+dest_files=[ "res://.import/pixelocti.png-669e4f8593d5a63218bd68061ef36181.stex" ]
 
 [params]
 

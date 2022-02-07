@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Obstacles/Scripts/ObstacleGroup.cs" type="Script" id=1]
-[ext_resource path="res://Obstacles/Obstacle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Obstacles/HookObstacle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Obstacles/AnchorObstacle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Obstacles/Scripts/ObstacleGroup.cs" type="Script" id=1]
+[ext_resource path="res://Game/Obstacles/Obstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Obstacles/HookObstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Obstacles/AnchorObstacle.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 50, 0 )

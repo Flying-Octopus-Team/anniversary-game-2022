@@ -12,7 +12,7 @@
 [ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=10]
 [ext_resource path="res://UI/Button/Sprites/buttonclicked.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/PressStart2P-Credits.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Resources/pixelocti.png" type="Texture" id=13]
+[ext_resource path="res://Game/Octi/Sprites/pixelocti.png" type="Texture" id=13]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0

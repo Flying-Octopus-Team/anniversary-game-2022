@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/haczyk02.png-ac52cc700f44be483b145eac773c7721.stex"
+path="res://.import/haczyk02.png-8b67200ba6b90c9e5075a43d201850c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Obstacles/Sprites/haczyk02.png"
-dest_files=[ "res://.import/haczyk02.png-ac52cc700f44be483b145eac773c7721.stex" ]
+source_file="res://Game/Obstacles/Sprites/haczyk02.png"
+dest_files=[ "res://.import/haczyk02.png-8b67200ba6b90c9e5075a43d201850c9.stex" ]
 
 [params]
 

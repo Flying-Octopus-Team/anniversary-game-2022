@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kotwica02.png-b7500069c8a48aff308eb706c3ee6649.stex"
+path="res://.import/octianimation.png-924aab01d5f745c806ad4298dbd18f33.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Obstacles/Sprites/kotwica02.png"
-dest_files=[ "res://.import/kotwica02.png-b7500069c8a48aff308eb706c3ee6649.stex" ]
+source_file="res://Game/Octi/Sprites/octianimation.png"
+dest_files=[ "res://.import/octianimation.png-924aab01d5f745c806ad4298dbd18f33.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

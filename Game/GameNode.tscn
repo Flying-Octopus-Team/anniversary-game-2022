@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/GameNode.cs" type="Script" id=1]
-[ext_resource path="res://Obstacles/ObstaclesManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Octi.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Scripts/GameNode.cs" type="Script" id=1]
+[ext_resource path="res://Game/Obstacles/ObstaclesManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Octi/Octi.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/Scenes/ScoringManager.tscn" type="PackedScene" id=5]
 
 

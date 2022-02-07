@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/octianimation.png-2ee61e37f051f05ccca69e4a7bfde510.stex"
+path="res://.import/bomba02.png-149def2c6f82bcfd6e04206a0348d8e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/octianimation.png"
-dest_files=[ "res://.import/octianimation.png-2ee61e37f051f05ccca69e4a7bfde510.stex" ]
+source_file="res://Game/Obstacles/Sprites/bomba02.png"
+dest_files=[ "res://.import/bomba02.png-149def2c6f82bcfd6e04206a0348d8e4.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
-flags/filter=true
+flags/repeat=1
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

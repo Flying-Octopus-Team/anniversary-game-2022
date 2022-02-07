@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixelocti.png-43018d017e90fec3907f6040f0c5863e.stex"
+path="res://.import/kotwica02.png-b1c6c4447a710495f17ee6de09444659.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/pixelocti.png"
-dest_files=[ "res://.import/pixelocti.png-43018d017e90fec3907f6040f0c5863e.stex" ]
+source_file="res://Game/Obstacles/Sprites/kotwica02.png"
+dest_files=[ "res://.import/kotwica02.png-b1c6c4447a710495f17ee6de09444659.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
