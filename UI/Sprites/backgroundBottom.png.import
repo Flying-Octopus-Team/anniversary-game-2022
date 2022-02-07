@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/octopus_transparent_cropped.png-91785fd22240ed8c7377c0ea5de37450.stex"
+path="res://.import/backgroundBottom.png-6c230a2a9d7eafa04bb6451a0e076856.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/octopus_transparent_cropped.png"
-dest_files=[ "res://.import/octopus_transparent_cropped.png-91785fd22240ed8c7377c0ea5de37450.stex" ]
+source_file="res://UI/Sprites/backgroundBottom.png"
+dest_files=[ "res://.import/backgroundBottom.png-6c230a2a9d7eafa04bb6451a0e076856.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
-flags/filter=true
+flags/repeat=1
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

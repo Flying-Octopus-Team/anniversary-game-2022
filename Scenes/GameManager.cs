@@ -3,30 +3,38 @@ using System;
 
 public class GameManager : Node
 {
+    private GameNode _gameNode;
 
-    [Export]
-    private NodePath _mainGame;
+    [Export] private PackedScene _mainGameScene;
 
-    [Export]
-    private PackedScene _mainGameScene;
-
-    [Export]
-    private PackedScene _gameOverScene;
+    [Export] private PackedScene _gameOverScene;
 
     public static bool IsPlaying = true;
 
-    public void GameReady()
+    public override void _Ready()
     {
-        GetNode("GameNode").Connect("OnDeath", this, nameof(EndGame));
+        StartGame();
     }
+
+    public void StartGame()
+    {
+        IsPlaying = true;
+        GameNode mainGame = _mainGameScene.Instance<GameNode>();
+        AddChild(mainGame);
+    }
+
+    public void GameReady(GameNode gameNode)
+    {
+        gameNode.Connect("OnDeath", this, nameof(EndGame));
+        _gameNode = gameNode;
+    }
+
     public void RestartGame()
     {
-        GetNode(_mainGame).Disconnect("OnDeath", this, nameof(EndGame));
-        GetNode(_mainGame).QueueFree();
-        IsPlaying = true;
-        Node mainGame = _mainGameScene.Instance();
-        AddChild(mainGame);
-        _mainGame = mainGame.GetPath();
+        _gameNode.Disconnect("OnDeath", this, nameof(EndGame));
+        _gameNode.QueueFree();
+        _gameNode = null;
+        StartGame();
     }
 
     public void EndGame()
@@ -36,8 +44,8 @@ public class GameManager : Node
         GD.Print("Game Over!");
         IsPlaying = false;
         Node gameOver = _gameOverScene.Instance();
-        GetNode(_mainGame).AddChild(gameOver);
+        _gameNode.AddChild(gameOver);
         GD.Print(gameOver.GetPath());
-        GetNode(gameOver.GetPath()).Connect("RestartButtonPressed", this, nameof(RestartGame));
+        gameOver.Connect("RestartButtonPressed", this, nameof(RestartGame));
     }
 }

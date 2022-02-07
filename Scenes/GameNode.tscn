@@ -3,7 +3,8 @@
 [ext_resource path="res://Scenes/GameNode.cs" type="Script" id=1]
 [ext_resource path="res://Obstacles/ObstaclesManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Octi.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ScoringSystem/ScoringManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Scenes/ScoringManager.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 591.188, 34 )
