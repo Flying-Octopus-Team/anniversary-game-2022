@@ -1,16 +1,16 @@
-[remap]
+﻿[remap]
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_sm.png-1cc0a66aef02865b4d3080c5b8ccd09a.stex"
+path="res://.import/octopus_transparent_cropped.png-91785fd22240ed8c7377c0ea5de37450.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://button_sm.png"
-dest_files=[ "res://.import/button_sm.png-1cc0a66aef02865b4d3080c5b8ccd09a.stex" ]
+source_file="res://UI/octopus_transparent_cropped.png"
+dest_files=[ "res://.import/octopus_transparent_cropped.png-91785fd22240ed8c7377c0ea5de37450.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

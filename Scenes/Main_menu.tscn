@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/PressStart2P-Buttons.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scripts/StartGameButton.cs" type="Script" id=2]
+[ext_resource path="res://UI/Button/Scripts/SwitchSceneButton.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Main_game.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://button_sm.png" type="Texture" id=5]
+[ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=5]
+[ext_resource path="res://UI/Button/Scripts/ExitButton.cs" type="Script" id=6]
 
 [node name="Node2D" type="Control"]
 anchor_right = 1.0
@@ -39,7 +40,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_MainScene = ExtResource( 3 )
+_scene = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VSplitContainer/StartButton"]
 anchor_right = 1.0
@@ -60,11 +61,10 @@ margin_bottom = 54.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 5 )
-script = ExtResource( 2 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_MainScene = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VSplitContainer/ExitButton"]
 anchor_right = 1.0

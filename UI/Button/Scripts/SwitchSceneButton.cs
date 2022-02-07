@@ -1,11 +1,11 @@
-using Godot;
+﻿using Godot;
 using System;
 
-public class StartGameButton : TextureButton
+public class SwitchSceneButton : TextureButton
 {
 
     [Export]
-    private PackedScene _MainScene;
+    private PackedScene _scene;
 
     public override void _Ready()
     {
@@ -14,6 +14,6 @@ public class StartGameButton : TextureButton
 
     public void OnStartGameButtonPressed()
     {
-        GetTree().ChangeScene(_MainScene.ResourcePath);
+        GetTree().ChangeScene(_scene.ResourcePath);
     }
 }

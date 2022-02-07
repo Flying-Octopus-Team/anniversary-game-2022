@@ -12,6 +12,8 @@ config_version=4
 
 config/name="FO Anniversary"
 run/main_scene="res://Scenes/Main_menu.tscn"
+boot_splash/image="res://UI/octopus_transparent_cropped.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [display]
