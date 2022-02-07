@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/PressStart2P-Buttons.tres" type="DynamicFont" id=1]
-[ext_resource path="res://UI/Button/Scripts/SwitchSceneButton.cs" type="Script" id=2]
+[ext_resource path="res://UI/Button/Scripts/ExitButton.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Main_game.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=5]
-[ext_resource path="res://UI/Button/Scripts/ExitButton.cs" type="Script" id=6]
+[ext_resource path="res://SwitchSceneButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Button/Sprites/buttonclicked.png" type="Texture" id=7]
+[ext_resource path="res://UI/title.png" type="Texture" id=8]
 
 [node name="Node2D" type="Control"]
 anchor_right = 1.0
@@ -14,54 +16,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" parent="." instance=ExtResource( 4 )]
+[node name="Background" parent="." instance=ExtResource( 4 )]
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -30.0
-margin_right = 32.0
-margin_bottom = 30.0
-dragger_visibility = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartButton" type="TextureButton" parent="VSplitContainer"]
-margin_right = 64.0
-margin_bottom = 24.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 5 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-_scene = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="VSplitContainer/StartButton"]
+[node name="VSplitContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 1 )
-text = "Start"
-align = 1
-valign = 1
+margin_top = 10.0
+margin_bottom = -60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer"]
+margin_left = 6.0
+margin_right = 506.0
+margin_bottom = 134.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" parent="VSplitContainer" instance=ExtResource( 6 )]
+margin_left = 224.0
+margin_top = 138.0
+margin_right = 288.0
+margin_bottom = 162.0
+_scene = ExtResource( 3 )
+
+[node name="CreditsButton" parent="VSplitContainer" instance=ExtResource( 6 )]
+margin_left = 224.0
+margin_top = 166.0
+margin_right = 288.0
+margin_bottom = 190.0
+
+[node name="Label" parent="VSplitContainer/CreditsButton" index="0"]
+margin_left = 1.0
+margin_right = 1.0
+text = "Credits"
+
 [node name="ExitButton" type="TextureButton" parent="VSplitContainer"]
-margin_top = 30.0
-margin_right = 64.0
-margin_bottom = 54.0
+margin_left = 224.0
+margin_top = 194.0
+margin_right = 288.0
+margin_bottom = 218.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 5 )
-script = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,3 +81,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[editable path="VSplitContainer/CreditsButton"]
