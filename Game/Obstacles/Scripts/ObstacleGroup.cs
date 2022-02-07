@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FOAnniversary.Game.Obstacles.Scripts;
 using FOAnniversary.Obstacles.Scripts;
 using Godot;
 
 namespace FOAnniversary
 {
-    public class ObstacleGroup : Node2D
+    public class ObstacleGroup : Node2D, IScrollable
     {
         [Export()] private List<NodePath> _topObstaclePaths;
         [Export()] private List<NodePath> _bottomObstaclePaths;

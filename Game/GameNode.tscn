@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Scripts/GameNode.cs" type="Script" id=1]
+[ext_resource path="res://Game/Decorations/DecorationManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Obstacles/ObstaclesManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Octi/Octi.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/Scenes/ScoringManager.tscn" type="PackedScene" id=5]
-
+[ext_resource path="res://Game/BubbleParticles.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 591.188, 34 )
@@ -12,13 +13,15 @@ extents = Vector2( 591.188, 34 )
 [node name="GameNode" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="DecorationManager" parent="." instance=ExtResource( 2 )]
+
+[node name="Octi" parent="." instance=ExtResource( 4 )]
+
 [node name="ObstaclesManager" parent="." instance=ExtResource( 3 )]
 _interval = 2.0
 _intervalVariance = 0.3
 
 [node name="ScoringManager" parent="." instance=ExtResource( 5 )]
-
-[node name="Octi" parent="." instance=ExtResource( 4 )]
 
 [node name="DeathTop" type="Area2D" parent="."]
 
@@ -31,5 +34,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathBottom"]
 position = Vector2( 523, 667 )
 shape = SubResource( 1 )
+
+[node name="Particles" parent="." instance=ExtResource( 6 )]
 
 [connection signal="OnDeath" from="Octi" to="." method="EmitOnDeath"]

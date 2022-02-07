@@ -6,8 +6,8 @@ using Array = Godot.Collections.Array;
 public class ScrollingNode : Node2D
 {
     [Export] public int MaxChildrenCount;
-    [Export] public int SpawnXPosition;
-    [Export] public int Speed;
+    [Export] public float SpawnXPosition;
+    [Export] public float Speed;
     [Export] private Resource _childResource;
 
     [Signal]

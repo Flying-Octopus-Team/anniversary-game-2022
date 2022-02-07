@@ -17,6 +17,6 @@ autostart = true
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource( 2 )
 MaxChildrenCount = 10
-SpawnXPosition = 600
-Speed = 3
+SpawnXPosition = 600.0
+Speed = 3.0
 _childResource = ExtResource( 3 )

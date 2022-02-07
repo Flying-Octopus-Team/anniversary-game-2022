@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Decorations/DecorationGroup.cs" type="Script" id=1]
+[ext_resource path="res://Game/Decorations/Sprites/koralowiec-znowu-chryste.PNG" type="Texture" id=2]
+[ext_resource path="res://Game/Decorations/Sprites/koralowiec-duo.PNG" type="Texture" id=3]
+
+[node name="DecorationGroup" type="Node2D"]
+script = ExtResource( 1 )
+_decorationPaths = [ NodePath("Koralowiec-duo"), NodePath("Koralowiec-znowu-chryste") ]
+
+[node name="Koralowiec-duo" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.74902 )
+position = Vector2( 0, 250 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 3 )
+
+[node name="Koralowiec-znowu-chryste" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.74902 )
+position = Vector2( 0, 250 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )

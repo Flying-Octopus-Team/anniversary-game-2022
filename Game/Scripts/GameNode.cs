@@ -8,7 +8,11 @@ public class GameNode : Node2D
 
     public override void _Ready()
     {
-        ((GameManager)GetParent()).GameReady(this);
+        var parent = GetParent();
+        if (parent != null)
+        {
+            ((GameManager)parent).GameReady(this);    
+        }
     }
 
     public void EmitOnDeath()

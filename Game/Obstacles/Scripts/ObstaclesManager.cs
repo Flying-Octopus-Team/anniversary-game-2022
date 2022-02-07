@@ -1,11 +1,11 @@
 using System;
+using FOAnniversary.Game.Obstacles.Scripts;
 using Godot;
 
 namespace FOAnniversary.Obstacles.Scripts
 {
     public class ObstaclesManager : Node2D
     {
-        private const int MAX_OBSTACLES = 10;
         private readonly Random _random = new Random();
 
         [Export] private float _interval;
@@ -34,7 +34,7 @@ namespace FOAnniversary.Obstacles.Scripts
 
         public void _on_Obstacles_OnChildSwap(Node2D node)
         {
-            ((ObstacleGroup)node).Shuffle();
+            ((IScrollable)node).Shuffle();
         }
 
         private async void StartGenerating()

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Obstacles/ObstaclesManager.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Decorations/DecorationGroup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Decorations/DecorationManager.cs" type="Script" id=3]
+
+[node name="DecorationManager" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+_interval = 3.0
+_intervalVariance = 1.0
+
+[node name="Obstacles" parent="." index="1"]
+MaxChildrenCount = 23
+Speed = 0.8
+_childResource = ExtResource( 2 )
