@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Game/Octi/Octi.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Scripts/ScoringManager.cs" type="Script" id=2]
 [ext_resource path="res://Fonts/PressStart2P-Counter.tres" type="DynamicFont" id=3]
 
 [node name="ScoringManager" type="Node"]
 script = ExtResource( 2 )
-_player = ExtResource( 1 )
+_labelPath = NodePath("Control/Label")
 
 [node name="Control" type="Control" parent="."]
 margin_left = 40.0

@@ -6,8 +6,9 @@
 
 [node name="ObstaclesManager" type="Node2D"]
 script = ExtResource( 1 )
-_interval = 0.6
-_intervalVariance = 0.2
+_interval = 2.0
+_intervalVariance = 0.5
+_intervalIncreaseValue = -0.05
 _obstaclesScrollPath = NodePath("Obstacles")
 _timerPath = NodePath("SpawnTimer")
 
@@ -16,7 +17,7 @@ autostart = true
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource( 2 )
-MaxChildrenCount = 10
+MaxChildrenCount = 400
 SpawnXPosition = 600.0
 Speed = 3.0
 _childResource = ExtResource( 3 )

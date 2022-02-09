@@ -1,32 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FOAnniversary.Obstacles.Scripts;
 using Godot;
-using Object = Godot.Object;
 
 public class ScoringManager : Node
 {
-    [Export()] private Octi _player;
+    [Export()] private NodePath _labelPath;
     private Label _label;
-    private int Score = 0;
+    private int _score;
+
     public override void _Ready()
     {
-        _label = GetChild(0).GetChild(0) as Label;
+        _label = GetNode<Label>(_labelPath);
+        _score = 0;
     }
 
-    private void OnBodyEntered(Node body)
+    private void OnObstaclePassed()
     {
         if (!GameManager.IsPlaying)
         {
             return;
         }
-        CollisionObject2D obj = body as CollisionObject2D;
-        if (obj.CollisionLayer == 2)
-        {
-            // Update Score
-            Score++;
-            _label.Text = Score.ToString();
-        }
+
+        _score++;
+        _label.Text = _score.ToString();
     }
 }

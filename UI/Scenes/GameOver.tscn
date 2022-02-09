@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Scripts/GameOver.cs" type="Script" id=2]
 [ext_resource path="res://Fonts/PressStart2P-Buttons.tres" type="DynamicFont" id=3]
 [ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=4]
-[ext_resource path="res://UI/Button/Scripts/ExitButton.cs" type="Script" id=6]
-
+[ext_resource path="res://UI/Button/Sprites/buttonclicked.png" type="Texture" id=5]
+[ext_resource path="res://UI/Button/SwitchSceneButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Button/Scripts/SwitchSceneWithStringButton.cs" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -16,19 +17,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 1 )
-
-[sub_resource type="CSharpScript" id=4]
-script/source = "using Godot;
-using System;
-
-public class RestartButton : TextureButton
-{
-    public override void _Ready()
-    {
-        
-    }
-}
-"
 
 [node name="GameOver" type="Node"]
 script = ExtResource( 2 )
@@ -94,7 +82,7 @@ margin_bottom = 24.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 4 )
-script = SubResource( 4 )
+texture_pressed = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,29 +99,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="TextureButton" parent="HSplitContainer"]
+[node name="ExitButton" parent="HSplitContainer" instance=ExtResource( 7 )]
 margin_left = 224.0
 margin_top = 30.0
 margin_right = 288.0
 margin_bottom = 54.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 4 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 8 )
+_sceneResourcePath = "res://UI/Scenes/Main_menu.tscn"
 
-[node name="Label" type="Label" parent="HSplitContainer/ExitButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 3 )
+[node name="Label" parent="HSplitContainer/ExitButton" index="0"]
 text = "Exit"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="HSplitContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+
+[editable path="HSplitContainer/ExitButton"]

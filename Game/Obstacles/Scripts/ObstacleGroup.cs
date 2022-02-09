@@ -32,7 +32,7 @@ namespace FOAnniversary
             ShuffleBottomObstacle();
             ShuffleTopObstacle();
             var maxHeight = (int)GetViewportRect().Size.y;
-            var topHeight = _rng.Next(0, maxHeight - _currentBottomObstacle.GetBallHeight() - _gapSize);
+            var topHeight = _rng.Next(0, maxHeight - _gapSize);
             var bottomHeight = _rng.Next(topHeight + _gapSize, maxHeight);
             _currentBottomObstacle.ResizeObstacle(bottomHeight);
             _currentTopObstacle.ResizeObstacle(topHeight);
@@ -62,13 +62,13 @@ namespace FOAnniversary
                 return;
             }
 
-            var botIdx = _rng.Next(0, _topObstacles.Count);
+            var idx = _rng.Next(0, _topObstacles.Count);
             if (_currentTopObstacle != null)
             {
                 _currentTopObstacle.Visible = false;
             }
 
-            _currentTopObstacle = _topObstacles[botIdx];
+            _currentTopObstacle = _topObstacles[idx];
             _currentTopObstacle.Visible = true;
         }
     }

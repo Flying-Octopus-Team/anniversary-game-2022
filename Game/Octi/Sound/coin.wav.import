@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/coin.wav-d8102c5b9d397fd774638363aa17bad5.sample"
+
+[deps]
+
+source_file="res://Game/Octi/Sound/coin.wav"
+dest_files=[ "res://.import/coin.wav-d8102c5b9d397fd774638363aa17bad5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -9,16 +9,21 @@ public class GameManager : Node
 
     [Export] private PackedScene _gameOverScene;
 
+    [Export] private NodePath _musicPlayerPath;
+    private AudioStreamPlayer _musicPlayer;
+
     public static bool IsPlaying = true;
 
     public override void _Ready()
     {
+        _musicPlayer = GetNode<AudioStreamPlayer>(_musicPlayerPath);
         StartGame();
     }
 
     public void StartGame()
     {
         IsPlaying = true;
+        _musicPlayer.Play();
         GameNode mainGame = _mainGameScene.Instance<GameNode>();
         AddChild(mainGame);
     }
@@ -43,6 +48,7 @@ public class GameManager : Node
 
         GD.Print("Game Over!");
         IsPlaying = false;
+        _musicPlayer.Stop();
         Node gameOver = _gameOverScene.Instance();
         _gameNode.AddChild(gameOver);
         GD.Print(gameOver.GetPath());

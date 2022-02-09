@@ -1,20 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Octi/Octi.cs" type="Script" id=1]
 [ext_resource path="res://Game/Octi/Sprites/pixelocti.png" type="Texture" id=2]
-[ext_resource path="res://Game/Octi/OctiBody.cs" type="Script" id=3]
+[ext_resource path="res://Game/Octi/Sound/hurt.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game/Octi/OctiSpriteFrames.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Game/Octi/Sound/jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://Game/Octi/Sound/coin.wav" type="AudioStream" id=6]
 
 [node name="Octi" type="Node2D"]
 position = Vector2( 151, 123 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.35, 0.35 )
 script = ExtResource( 1 )
+_octiBodyPath = NodePath("KinematicBody2D")
+_jumpSpeed = -200
+_gravity = 10
+_audioPlayerPath = NodePath("AudioStreamPlayer")
+_jumpSound = ExtResource( 5 )
+_deathSound = ExtResource( 3 )
+_obstaclePassedSound = ExtResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-script = ExtResource( 3 )
-_JumpSpeed = -350
-_Gravity = 10
-_OctiParent = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
 polygon = PoolVector2Array( 36, -22, 45, -29, 51, -29, 51, -17, 53, -17, 53, -12, 48, 2, 62, 15, 62, 29, 49, 25, 49, 37, 44, 39, 35, 34, 16, 42, 11, 42, -7, 28, -10, 29, -20, 40, -24, 40, -32, 29, -42, 33, -45, 33, -50, 24, -56, 24, -57, 21, -57, 2, -62, -3, -62, -36, -54, -36, -38, -25, -18.6, -41.5, 18, -41.5 )
@@ -33,7 +38,9 @@ texture = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = ExtResource( 4 )
 animation = "swim"
-frame = 1
 playing = true
 
-[connection signal="area_entered" from="KinematicBody2D/Area2D" to="KinematicBody2D" method="OnBodyEntered"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="KinematicBody2D/Area2D" to="." method="OnBodyEntered"]
+[connection signal="area_exited" from="KinematicBody2D/Area2D" to="." method="OnBodyExit"]

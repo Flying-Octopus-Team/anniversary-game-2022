@@ -10,6 +10,7 @@ namespace FOAnniversary.Obstacles.Scripts
 
         [Export] private float _interval;
         [Export] private float _intervalVariance;
+        [Export] private float _intervalIncreaseValue;
 
         [Export] private NodePath _obstaclesScrollPath;
         [Export] private NodePath _timerPath;
@@ -28,7 +29,7 @@ namespace FOAnniversary.Obstacles.Scripts
         {
             if (GameManager.IsPlaying)
             {
-                _obstaclesScroll.Scroll();                
+                _obstaclesScroll.Scroll();
             }
         }
 
@@ -43,11 +44,28 @@ namespace FOAnniversary.Obstacles.Scripts
             {
                 await ToSignal(_obstaclesTimer, "timeout");
 
-                var tempVar = (int)(_intervalVariance * 100);
-                var finalVar = _random.Next(-tempVar, tempVar) / 100f;
-                _obstaclesTimer.WaitTime = _interval + finalVar;
+                var variance = (int)(_intervalVariance * 100);
+                var varianceValue = _random.Next(-variance, variance) / 100f;
+                _obstaclesTimer.WaitTime = _interval + varianceValue;
 
                 _obstaclesScroll.ManageChildren();
+                if (_interval > 0.1f)
+                {
+                    _interval += _intervalIncreaseValue;
+                    if (_interval < 0.1f)
+                    {
+                        _interval = 0.1f;
+                    }
+                }
+                if (_intervalVariance > 0)
+                {
+                    _intervalVariance += _intervalIncreaseValue * 0.1f;
+                    if (_intervalVariance < 0.05f)
+                    {
+                        _intervalVariance = 0.05f;
+                    }
+                }
+                
             }
         }
     }

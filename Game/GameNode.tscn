@@ -18,8 +18,6 @@ script = ExtResource( 1 )
 [node name="Octi" parent="." instance=ExtResource( 4 )]
 
 [node name="ObstaclesManager" parent="." instance=ExtResource( 3 )]
-_interval = 2.0
-_intervalVariance = 0.3
 
 [node name="ScoringManager" parent="." instance=ExtResource( 5 )]
 
@@ -30,6 +28,7 @@ position = Vector2( 507, -76 )
 shape = SubResource( 1 )
 
 [node name="DeathBottom" type="Area2D" parent="."]
+position = Vector2( 1, -298 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathBottom"]
 position = Vector2( 523, 667 )
@@ -38,3 +37,4 @@ shape = SubResource( 1 )
 [node name="Particles" parent="." instance=ExtResource( 6 )]
 
 [connection signal="OnDeath" from="Octi" to="." method="EmitOnDeath"]
+[connection signal="OnPassObstacles" from="Octi" to="ScoringManager" method="OnObstaclePassed"]
