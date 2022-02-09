@@ -6,7 +6,11 @@ public class GameManager : Node
 
     [Export] private PackedScene _mainGameScene;
 
-    [Export] private PackedScene _gameOverScene;
+    [Export] private NodePath _gameOverPath;
+    private Control _gameOver;
+
+    [Export] private NodePath _gamePositionPath;
+    private Node _gamePosition;
 
     [Export] private NodePath _musicPlayerPath;
     private AudioStreamPlayer _musicPlayer;
@@ -20,6 +24,8 @@ public class GameManager : Node
     {
         _musicPlayer = GetNode<AudioStreamPlayer>(_musicPlayerPath);
         _shakyCamera = GetNode<ShakyCamera>(_shakyCameraPath);
+        _gameOver = GetNode<Control>(_gameOverPath);
+        _gamePosition = GetNode<Node>(_gamePositionPath);
         StartGame();
     }
 
@@ -28,7 +34,7 @@ public class GameManager : Node
         IsPlaying = true;
         _musicPlayer.Play();
         GameNode mainGame = _mainGameScene.Instance<GameNode>();
-        AddChild(mainGame);
+        AddChildBelowNode(_gamePosition, mainGame);
     }
 
     public void GameReady(GameNode gameNode)
@@ -42,6 +48,7 @@ public class GameManager : Node
         _gameNode.Disconnect("OnDeath", this, nameof(EndGame));
         _gameNode.QueueFree();
         _gameNode = null;
+        _gameOver.Visible = false;
         StartGame();
     }
 
@@ -55,9 +62,6 @@ public class GameManager : Node
 
         IsPlaying = false;
         _musicPlayer.Stop();
-        Node gameOver = _gameOverScene.Instance();
-        _gameNode.AddChild(gameOver);
-        GD.Print(gameOver.GetPath());
-        gameOver.Connect("RestartButtonPressed", this, nameof(RestartGame));
+        _gameOver.Visible = true;
     }
 }

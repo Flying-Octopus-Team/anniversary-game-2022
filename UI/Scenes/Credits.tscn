@@ -1,18 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/Scenes/Background.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Fonts/PressStart2P-Buttons.tres" type="DynamicFont" id=2]
-[ext_resource path="res://UI/Button/Sprites/facebook_pressed_btn.png" type="Texture" id=3]
+[ext_resource path="res://UI/Button/SwitchSceneWithStringButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/Button/Sprites/discord_btn.png" type="Texture" id=4]
 [ext_resource path="res://UI/Button/Sprites/discord_pressed_btn.png" type="Texture" id=5]
-[ext_resource path="res://UI/Button/Sprites/facebook_btn.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/PressStart2P-Credits-Title.tres" type="DynamicFont" id=7]
-[ext_resource path="res://UI/Button/Scripts/SwitchSceneWithStringButton.cs" type="Script" id=8]
-[ext_resource path="res://UI/Button/Scripts/LinkButton.cs" type="Script" id=9]
-[ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=10]
-[ext_resource path="res://UI/Button/Sprites/buttonclicked.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/PressStart2P-Credits.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Game/Octi/Sprites/pixelocti.png" type="Texture" id=13]
+[ext_resource path="res://UI/Button/LinkButton.tscn" type="PackedScene" id=14]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -44,7 +39,7 @@ alignment = 2
 [node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/VBoxContainer"]
 margin_right = 482.0
 margin_bottom = 112.0
-collapsed = true
+split_offset = 30
 dragger_visibility = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/VSplitContainer"]
@@ -92,52 +87,28 @@ size_flags_horizontal = 2
 size_flags_vertical = 4
 texture = ExtResource( 13 )
 
-[node name="FacebookButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="FacebookButton" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 14 )]
 margin_left = 338.0
 margin_top = 11.0
 margin_right = 366.0
 margin_bottom = 39.0
-size_flags_vertical = 4
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 3 )
-script = ExtResource( 9 )
+size_flags_horizontal = 1
 _url = "https://www.facebook.com/FO.flyingoctopus/"
 
-[node name="DiscordButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="DiscordButton" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 14 )]
 margin_left = 378.0
 margin_top = 11.0
 margin_right = 406.0
 margin_bottom = 39.0
-size_flags_vertical = 4
+size_flags_horizontal = 1
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
-script = ExtResource( 9 )
 _url = "https://discord.gg/Q2DuSNY"
 
-[node name="BackButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CoolButton" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 418.0
 margin_top = 13.0
 margin_right = 482.0
 margin_bottom = 37.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+_buttonText = "Back"
 _sceneResourcePath = "res://UI/Scenes/Main_menu.tscn"
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/BackButton"]
-modulate = Color( 1, 1, 1, 0.784314 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}

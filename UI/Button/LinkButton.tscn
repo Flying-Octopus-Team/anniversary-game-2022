@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Button/Scripts/LinkButton.cs" type="Script" id=1]
+[ext_resource path="res://UI/Button/Sprites/facebook_pressed_btn.png" type="Texture" id=2]
+[ext_resource path="res://UI/Button/Sprites/facebook_btn.png" type="Texture" id=3]
+[ext_resource path="res://UI/Button/BaseButton.tscn" type="PackedScene" id=4]
+
+[node name="CoolButton" instance=ExtResource( 4 )]
+margin_right = 24.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+script = ExtResource( 1 )
+_buttonText = ""
+_buttonFont = null

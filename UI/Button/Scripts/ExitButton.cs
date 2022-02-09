@@ -1,15 +1,10 @@
-﻿using Godot;
-using System;
-
-public class ExitButton : TextureButton
+﻿namespace FOAnniversary.UI.Button.Scripts
 {
-    public override void _Ready()
+    public class ExitButton : BasicButton
     {
-        Connect("pressed", this, "OnExitButtonPressed");
-    }
-
-    public void OnExitButtonPressed()
-    {
-        GetTree().Quit();
+        protected override void OnButtonClick()
+        {
+            GetTree().Quit();
+        }
     }
 }

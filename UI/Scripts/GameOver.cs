@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class GameOver : Node
+public class GameOver : Control
 {
 
     [Signal]

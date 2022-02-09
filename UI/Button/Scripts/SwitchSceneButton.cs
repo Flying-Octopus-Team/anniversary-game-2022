@@ -1,19 +1,14 @@
 ﻿using Godot;
-using System;
 
-public class SwitchSceneButton : TextureButton
+namespace FOAnniversary.UI.Button.Scripts
 {
-
-    [Export]
-    private PackedScene _scene;
-
-    public override void _Ready()
+    public class SwitchSceneButton : BasicButton
     {
-        Connect("pressed", this, "OnStartGameButtonPressed");
-    }
+        [Export] private PackedScene _scene;
 
-    public void OnStartGameButtonPressed()
-    {
-        GetTree().ChangeScene(_scene.ResourcePath);
+        protected override void OnButtonClick()
+        {
+            GetTree().ChangeScene(_scene.ResourcePath);
+        }
     }
 }

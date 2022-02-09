@@ -1,17 +1,15 @@
-﻿using Godot;
-using System;
+﻿using System;
+using Godot;
 
-public class LinkButton : Node
+namespace FOAnniversary.UI.Button.Scripts
 {
-    [Export()] private String _url;
-
-    public override void _Ready()
+    public class LinkButton : BasicButton
     {
-        Connect("pressed", this, "OnButtonPressed");
-    }
+        [Export()] private String _url;
 
-    public void OnButtonPressed()
-    {
-        OS.ShellOpen(_url);
+        protected override void OnButtonClick()
+        {
+            OS.ShellOpen(_url);
+        }
     }
 }
