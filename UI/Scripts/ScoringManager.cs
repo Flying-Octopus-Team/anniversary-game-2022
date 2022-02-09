@@ -4,12 +4,12 @@ public class ScoringManager : Node
 {
     [Export()] private NodePath _labelPath;
     private Label _label;
-    private int _score;
+    public int Score;
 
     public override void _Ready()
     {
         _label = GetNode<Label>(_labelPath);
-        _score = 0;
+        Score = 0;
     }
 
     private void OnObstaclePassed()
@@ -19,7 +19,7 @@ public class ScoringManager : Node
             return;
         }
 
-        _score++;
-        _label.Text = _score.ToString();
+        Score++;
+        _label.Text = Score.ToString();
     }
 }

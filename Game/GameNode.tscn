@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Scripts/GameNode.cs" type="Script" id=1]
 [ext_resource path="res://Game/Decorations/DecorationManager.tscn" type="PackedScene" id=2]
@@ -10,8 +10,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 591.188, 34 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 256, 144 )
+
 [node name="GameNode" type="Node2D"]
 script = ExtResource( 1 )
+_scoringSystemPath = NodePath("ScoringManager")
 
 [node name="DecorationManager" parent="." instance=ExtResource( 2 )]
 
@@ -35,6 +39,10 @@ position = Vector2( 523, 667 )
 shape = SubResource( 1 )
 
 [node name="Particles" parent="." instance=ExtResource( 6 )]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource( 2 )
+action = "jump"
 
 [connection signal="OnDeath" from="Octi" to="." method="EmitOnDeath"]
 [connection signal="OnPassObstacles" from="Octi" to="ScoringManager" method="OnObstaclePassed"]

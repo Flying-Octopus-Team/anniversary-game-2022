@@ -7,7 +7,7 @@ public class GameManager : Node
     [Export] private PackedScene _mainGameScene;
 
     [Export] private NodePath _gameOverPath;
-    private Control _gameOver;
+    private GameOver _gameOver;
 
     [Export] private NodePath _gamePositionPath;
     private Node _gamePosition;
@@ -24,7 +24,7 @@ public class GameManager : Node
     {
         _musicPlayer = GetNode<AudioStreamPlayer>(_musicPlayerPath);
         _shakyCamera = GetNode<ShakyCamera>(_shakyCameraPath);
-        _gameOver = GetNode<Control>(_gameOverPath);
+        _gameOver = GetNode<GameOver>(_gameOverPath);
         _gamePosition = GetNode<Node>(_gamePositionPath);
         StartGame();
     }
@@ -52,7 +52,7 @@ public class GameManager : Node
         StartGame();
     }
 
-    public void EndGame()
+    public void EndGame(int score)
     {
         _shakyCamera.Shake(0.2f, 15f, 8f);
         if (!IsPlaying)
@@ -63,5 +63,6 @@ public class GameManager : Node
         IsPlaying = false;
         _musicPlayer.Stop();
         _gameOver.Visible = true;
+        _gameOver.SetScore(score);
     }
 }
