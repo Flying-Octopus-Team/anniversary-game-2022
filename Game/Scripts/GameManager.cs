@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class GameManager : Node
 {
@@ -12,11 +11,15 @@ public class GameManager : Node
     [Export] private NodePath _musicPlayerPath;
     private AudioStreamPlayer _musicPlayer;
 
+    [Export] private NodePath _shakyCameraPath;
+    private ShakyCamera _shakyCamera;
+
     public static bool IsPlaying = true;
 
     public override void _Ready()
     {
         _musicPlayer = GetNode<AudioStreamPlayer>(_musicPlayerPath);
+        _shakyCamera = GetNode<ShakyCamera>(_shakyCameraPath);
         StartGame();
     }
 
@@ -44,9 +47,12 @@ public class GameManager : Node
 
     public void EndGame()
     {
-        if (!IsPlaying) return;
+        _shakyCamera.Shake(0.2f, 15f, 8f);
+        if (!IsPlaying)
+        {
+            return;
+        }
 
-        GD.Print("Game Over!");
         IsPlaying = false;
         _musicPlayer.Stop();
         Node gameOver = _gameOverScene.Instance();

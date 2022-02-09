@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/Scenes/Credits.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Scenes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Button/SwitchSceneButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/MainGame.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Button/Scripts/ExitButton.cs" type="Script" id=5]
 [ext_resource path="res://UI/Sprites/title.png" type="Texture" id=6]
 [ext_resource path="res://UI/Button/Sprites/buttonclicked.png" type="Texture" id=7]
 [ext_resource path="res://UI/Button/Sprites/button_sm.png" type="Texture" id=8]
@@ -66,6 +67,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
