@@ -19,4 +19,4 @@ texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 3, 92 )
 
 [node name="CollisionPolygon2D" parent="ChainSprite/Area2D" index="0"]
-polygon = PoolVector2Array( 1.5, 46, -1.5, 46, -1.5, -46, 1.5, -46 )
+polygon = PoolVector2Array( 1.5, 0.5, -1.5, 0.5, -1.5, -0.5, 1.5, -0.5 )

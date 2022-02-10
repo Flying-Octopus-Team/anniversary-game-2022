@@ -26,10 +26,11 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 9, 39 )
 script = ExtResource( 2 )
+_collisionPolygonPath = NodePath("Area2D/CollisionPolygon2D")
 
 [node name="Area2D" type="Area2D" parent="ChainSprite"]
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChainSprite/Area2D"]
 visible = false
-polygon = PoolVector2Array( 4.5, 19.5, -4.5, 19.5, -4.5, -19.5, 4.5, -19.5 )
+polygon = PoolVector2Array( 4.5, 0.5, -4.5, 0.5, -4.5, -0.5, 4.5, -0.5 )
