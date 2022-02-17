@@ -66,7 +66,7 @@ public class ShakyCamera : Camera2D
         _previousX = GetRandomNumber(-1.0f, 1.0f);
         _previousY = GetRandomNumber(-1.0f, 1.0f);
 // # Reset previous offset, if any.
-        Offset -= _lastOffset;
+        Offset = new Vector2(0, 0);
         _lastOffset = new Vector2(0, 0);
     }
 
