@@ -45,6 +45,7 @@ namespace FOAnniversary
                 return;
             }
 
+            _bottomObstacles.ForEach(obs => obs.DisableCollisions());
             var botIdx = _rng.Next(0, _bottomObstacles.Count);
             if (_currentBottomObstacle != null)
             {
@@ -53,6 +54,7 @@ namespace FOAnniversary
 
             _currentBottomObstacle = _bottomObstacles[botIdx];
             _currentBottomObstacle.Visible = true;
+            _currentBottomObstacle.EnableCollisions();;
         }
 
         private void ShuffleTopObstacle()
@@ -62,6 +64,7 @@ namespace FOAnniversary
                 return;
             }
 
+            _topObstacles.ForEach(obs => obs.DisableCollisions());
             var idx = _rng.Next(0, _topObstacles.Count);
             if (_currentTopObstacle != null)
             {
@@ -70,6 +73,7 @@ namespace FOAnniversary
 
             _currentTopObstacle = _topObstacles[idx];
             _currentTopObstacle.Visible = true;
+            _currentTopObstacle.EnableCollisions();;
         }
     }
 }
